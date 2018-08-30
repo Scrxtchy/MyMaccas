@@ -6,7 +6,7 @@ config = {
 	"username":"h@ck.the.gibson", #email
 	"password":"GOD", #password
 	"postcode":"3000", #store postcode	TODO: May get more than one town per lookup
-	"nonce": "happybaby",				TODO: This also applies to multiple stores 
+	"nonce": "happybaby",		#	TODO: This also applies to multiple stores 
 	"versionId": "0.0.1.I",
 	"application": "MOT"
 }
@@ -26,7 +26,7 @@ def post(endpoint, body=None, headers=None):
 def computeHash(Id, Version, Nonce):
 	return b64encode(md5("=PA64E47237FC34714AF852B795DAF8DEC\\o/{0}o|o{1}=/{2}".format(Version, Id, Nonce).encode('utf-8')).hexdigest().encode('utf-8')).decode('utf-8')
 
-def login(username, password):			TODO: Catch bad logins
+def login(username, password):		#	TODO: Catch bad logins
 	resp = post('/customer/session/sign-in-and-authenticate', body={
 	"marketId": "AU",
 	"application": config["application"],
